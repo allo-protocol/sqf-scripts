@@ -31,8 +31,9 @@ To create a pool on Allo you need a Registry profile. If you don't have one yet,
 - Open `src/create-profile.ts`
 - Fill out the `profile` config params (lines 8-15)
 - save and run:
+
 ```shell
-yarn create-pool
+yarn create-profile
 ```
 
 2. Deploy the strategy.
@@ -45,6 +46,7 @@ yarn deploy-strategy
 - Open `src/create-pool.ts`
 - Fill out the `initData` and `poolData` config params (lines 8-35)
 - save and run:
+  
 ```shell
 yarn run create-pool
 ```
