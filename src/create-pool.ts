@@ -4,32 +4,35 @@ import allo from "../abi/Allo.json";
 import readline from "readline";
 
 dotenv.config();
+const now = Math.floor(Date.now() / 1000);
+const minutes = (n: number) => n * 60;
 
 // ================= Config ==================
 
 const initData = {
   useRegistryAnchor: true,
   metadataRequired: false,
-  passportDecoder: "0x123...",
-  superfluidHost: "0x123...",
-  allocationSuperToken: "0x123...",
-  registrationStartTime: 0, // in seconds, must be in future
-  registrationEndTime: 0, // in seconds, must be after registrationStartTime
-  allocationStartTime: 0, // in seconds, must be after registrationStartTime
-  allocationEndTime: 0, // in seconds, must be after allocationStartTime
+  passportDecoder: "0x22ff293e14F1EC3A09B137e9e06084AFd63adDF9",
+  superfluidHost: "0x22ff293e14F1EC3A09B137e9e06084AFd63adDF9",
+  allocationSuperToken: "0xf2d68898557ccb2cf4c10c3ef2b034b2a69dad00",
+  registrationStartTime: now + minutes(5), // in seconds, must be in future
+  registrationEndTime: now + minutes(220), // in seconds, must be after registrationStartTime
+  allocationStartTime: now + minutes(5), // in seconds, must be after registrationStartTime
+  allocationEndTime: now + minutes(225), // in seconds, must be after allocationStartTime
   minPassportScore: 0,
-  initialSuperAppBalance: "0", // in wei
+  initialSuperAppBalance: "1000", // in wei
 };
 
 const poolData = {
-  profileId: "0x123...", // created using create-profile.ts
-  strategy: "0x123...", // created using deploy-strategy.ts
-  token: "0x123...", // pool token (match token)
+  profileId:
+    "0x98f780ec12a0835b78ec0ccd983bbb0b9a2a3d2e226489215d890876d0903968", // created using create-profile.ts
+  strategy: "0xc944eE998b6793Fa7511605A0577e245B1EEBc5a", // created using deploy-strategy.ts
+  token: "0xf2d68898557ccb2cf4c10c3ef2b034b2a69dad00", // pool token (match token)
   metadata: {
     protocol: 0, // 0 = NONE, 1 = IPFS
     pointer: "bafybeib2z...", // IPFS CID
   },
-  managers: ["0x123..."],
+  managers: [],
 };
 
 // ================== /Config ==================
